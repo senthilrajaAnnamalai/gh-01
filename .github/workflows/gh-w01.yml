@@ -1,0 +1,11 @@
+name: gh-w01
+on: workflow_dispatch
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Greeting
+        run: echo "My First Workflow"
+      - name: Print Bye
+        run: echo "GoodBye"
+        
