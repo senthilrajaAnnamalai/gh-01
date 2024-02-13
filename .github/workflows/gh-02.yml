@@ -28,4 +28,4 @@ jobs:
         run: echo "${{ toJSON(github.repository) }}"
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo "${{ toJSON(github.repository.branches_url) }}"
+        run: echo "${{ toJSON(github.event.branches_url) }}"
