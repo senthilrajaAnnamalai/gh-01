@@ -8,4 +8,4 @@ jobs:
         id: osname
         run: |
           OUTPUT=$(uname -r)
-          echo "${OUTPUT}"
+          echo "${OUTPUT}" >> GITHUB_OUTPUT
