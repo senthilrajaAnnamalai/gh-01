@@ -13,7 +13,8 @@ jobs:
           sudo ufw allow 'Nginx HTTP'
           sudo systemctl restart nginx
           sudo systemctl status nginx
-          sudo curl http://localhost
+          sudo apt install lynx
+          sudo lynx http://localhost
       - name: Print Bye
         run: echo "GoodBye"
         
