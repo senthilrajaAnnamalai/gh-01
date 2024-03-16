@@ -8,7 +8,7 @@ jobs:
         id: osname
         run: |
           OUTPUT=$(uname -r)
-          echo "${OUTPUT}" >> GITHUB_OUTPUT
+          echo "out = ${OUTPUT}" >> GITHUB_OUTPUT
       - name: display osname
         id: disp
-        run: echo "os name is ${{ steps.osname.outputs}}"
+        run: echo "os name is ${{ steps.osname.outputs.out}}"
