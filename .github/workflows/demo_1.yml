@@ -9,7 +9,7 @@ jobs:
           echo "My First Workflow"
           sudo apt update
           sudo apt install nginx
-          curl http://localhost
+          curl http://localhost:80
       - name: Print Bye
         run: echo "GoodBye"
         
