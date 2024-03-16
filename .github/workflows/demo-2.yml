@@ -6,6 +6,8 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v3
+      - name: Display workspace
+        run:  ${GITHUB_WORKSPACE}
       - name: Run a script
         run: bash ${GITHUB_WORKSPACE}/system_info.sh
 
