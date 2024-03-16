@@ -10,7 +10,7 @@ jobs:
         run: sudo bash ${GITHUB_WORKSPACE}/sys_info_1.sh
       - name: publish output
         id: os_info
-        run: sudo uname -r >> $GITHUB_OUTPUT
+        run: echo "hello ubuntu" >> $GITHUB_OUTPUT
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
