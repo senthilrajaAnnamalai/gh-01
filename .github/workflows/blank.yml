@@ -6,4 +6,6 @@ jobs:
     steps:
       - name: get osname
         id: osname
-        run: sudo uname -r 
+        run: |
+          OUTPUT=$(uname -r)
+          echo "${OUTPUT}"
