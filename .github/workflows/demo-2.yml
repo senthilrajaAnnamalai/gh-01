@@ -14,7 +14,7 @@ jobs:
         id: os_info
         run: echo "OS_NAME = uname -r" >> $GITHUB_OUTPUT
       - name: Retrieve output
-        run: echo ${{ steps.os_info.outputs.OS_NAME }}
+        run: echo " os_name is ${{ steps.os_info.outputs.OS_NAME }}"
       - name: Set color
         id: random-color-generator
         run: echo "SELECTED_COLOR=green" >> $GITHUB_OUTPUT
