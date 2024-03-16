@@ -7,5 +7,5 @@ jobs:
       - name: Get code
         uses: actions/checkout@v3
       - name: Run a script
-        run: ./system_info.sh
+        run: bash ./system_info.sh
 
