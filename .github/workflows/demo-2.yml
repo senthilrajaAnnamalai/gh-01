@@ -7,7 +7,7 @@ jobs:
       - name: Get code
         uses: actions/checkout@v3
       - name: Run a script
-        run: sudo bash ${GITHUB_WORKSPACE}/sys_info_1.sh >> $GITHUB_OUTPUT
+        run: sudo bash ${GITHUB_WORKSPACE}/sys_info_1.sh >> $GITHUB_OUTPUT  ';'
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
