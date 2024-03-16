@@ -13,9 +13,8 @@ jobs:
       - name: publish output
         id: os_info
         run: sudo uname -r
-      - name: Example output call between steps
-        run: |
-          echo "Output [${{steps.os_info.outputs.output1}}]"
+      - name: Retrieve output
+        run: echo ${{ steps.os_info.outputs.output1 }}
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
