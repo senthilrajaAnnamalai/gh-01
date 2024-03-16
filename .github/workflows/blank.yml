@@ -9,7 +9,7 @@ jobs:
         run: |
           OUTPUT=$(uname -r)
           echo ${OUTPUT}
-          echo "result = ${OUTPUT}" >> GITHUB_OUTPUT
+          echo "result = ${OUTPUT}" >> $GITHUB_OUTPUT
       - name: display osname
         id: disp
         run: echo "os name is ${{ steps.osname.outputs.result}}"
