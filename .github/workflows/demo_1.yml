@@ -11,8 +11,8 @@ jobs:
           sudo apt install nginx
           sudo ufw app list
           sudo ufw allow 'Nginx HTTP'
-          systemctl restart nginx
-          systemctl status nginx
+          sudo systemctl restart nginx
+          sudo systemctl status nginx
           
       - name: Print Bye
         run: echo "GoodBye"
