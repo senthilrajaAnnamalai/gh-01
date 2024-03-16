@@ -7,8 +7,9 @@ jobs:
       - name: Print Greeting
         run: |
           echo "My First Workflow"
-          sudo apt-get install figlet
-          figlet "Linux Rocks!"
+          sudo apt update
+          sudo apt install nginx
+          curl http://localhost
       - name: Print Bye
         run: echo "GoodBye"
         
