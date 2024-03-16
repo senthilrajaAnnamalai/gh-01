@@ -4,9 +4,12 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - id: step1
-        run: | 
-          CURRENT_USERS=$(who)
-          echo "OSNAME = $CURRENT_USERS" >> "$GITHUB_OUTPUT"
-      - id: step2
-        run: echo ${{ steps.step1.outputs.OSNAME}}
+      - id: env-setup
+        run: |
+          {
+            "env_token=production"
+            "env_domain=example.com"
+          } >> $GITHUB_OUTPUT
+      - run: |
+          echo "${{ steps.env-setup.outputs.env_token }}"
+          echo "${{ steps.env-setup.outputs.env_domain }}"
