@@ -5,8 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: step1
-        run: |
-          echo hello
-          x=$(echo hello)  >> "$GITHUB_OUTPUT"
+        run: | 
+          OS_NAME = $(uname -r)
+          echo "OSNAME = $OS_NAME" >> "$GITHUB_OUTPUT"
       - id: step2
-        run: echo ${{ steps.step1.outputs}}
+        run: echo ${{ steps.step1.outputs.OSNAME}}
