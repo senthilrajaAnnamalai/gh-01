@@ -4,17 +4,8 @@ jobs:
   first-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Print Greeting
-        run: |
-          echo "My First Workflow"
-          sudo apt update
-          sudo apt install nginx
-          sudo ufw app list
-          sudo ufw allow 'Nginx HTTP'
-          sudo systemctl restart nginx
-          sudo systemctl status nginx
-          sudo apt install lynx -y
-          sudo lynx http://localhost
-      - name: Print Bye
-        run: echo "GoodBye"
-        
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Run a script
+        run: ./system_info.sh
+
