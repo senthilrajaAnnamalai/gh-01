@@ -13,7 +13,7 @@ jobs:
         run: echo "abc = hello ubuntu" >> $GITHUB_OUTPUT
       - name: Example output call between steps
         run: |
-          echo "Output [${{steps.os_info.outputs.abc}}]"
+          echo "Output [${{steps.os_info.outputs}}]"
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
