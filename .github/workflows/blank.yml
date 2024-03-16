@@ -6,7 +6,7 @@ jobs:
     steps:
       - id: step1
         run: | 
-          OS_NAME = $(uname -r)
-          echo "OSNAME = $OS_NAME" >> "$GITHUB_OUTPUT"
+          CURRENT_USERS=$(who)
+          echo "OSNAME = $CURRENT_USERS" >> "$GITHUB_OUTPUT"
       - id: step2
         run: echo ${{ steps.step1.outputs.OSNAME}}
