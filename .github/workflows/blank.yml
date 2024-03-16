@@ -11,4 +11,4 @@ jobs:
           echo "${OUTPUT}" >> GITHUB_OUTPUT
       - name: display osname
         id: disp
-        run: echo "os name is ${{ steps.osname.outputs}}
+        run: echo "os name is ${{ steps.osname.outputs}}"
