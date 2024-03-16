@@ -4,12 +4,6 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - id: env-setup
-        run: |
-          {
-            "env_token=production"
-            "env_domain=example.com"
-          } >> $GITHUB_OUTPUT
-      - run: |
-          echo "${{ steps.env-setup.outputs.env_token }}"
-          echo "${{ steps.env-setup.outputs.env_domain }}"
+      - name: get osname
+        id: osname
+        run: sudo uname -r 
