@@ -11,11 +11,11 @@ jobs:
       - name: publish output
         id: os_info
         run: |
-          os_name = uname -r 
-          echo "osname = $osname" >> $GITHUB_OUTPUT
+          OUTDATED=$(npm outdated) || true    
+          echo "OUTDATED='$OUTDATED'" >> $GITHUB_OUTPUT
       - name: Example output call between steps
         run: |
-          echo "Output [${{steps.os_info.outputs.os_name}}]"
+          echo "Output [${{steps.os_info.outputs.OUTDATED}}]"
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
