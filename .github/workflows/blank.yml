@@ -16,7 +16,7 @@ jobs:
       - name: "Example output creation"
         id: "my_step"
         run: |
-          my_var="Hello World"
+          my_var=$(uname -r)
           echo "Output [$my_var]"
           echo "my_var=$my_var" >> $GITHUB_OUTPUT 
       - name: "Example output call between steps"
