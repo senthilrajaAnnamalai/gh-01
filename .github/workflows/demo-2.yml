@@ -12,8 +12,7 @@ jobs:
         run: sudo bash ${GITHUB_WORKSPACE}/sys_info_1.sh
       - name: publish output
         id: os_info
-        run: |
-          'osname = sudo uname -r' >> $GITHUB_OUTPUT
+        run: sudo uname -r
       - name: Example output call between steps
         run: |
           echo "Output [${{steps.os_info.outputs.output1}}]"
