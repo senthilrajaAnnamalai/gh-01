@@ -9,4 +9,4 @@ jobs:
           echo hello
           x=$(echo hello)  >> "$GITHUB_OUTPUT"
       - id: step2
-        run: echo ${{ steps.step1.outputs.x }}
+        run: echo ${{ steps.step1.outputs}}
