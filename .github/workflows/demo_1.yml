@@ -9,8 +9,10 @@ jobs:
           echo "My First Workflow"
           sudo apt update
           sudo apt install nginx
-          sudo apt install curl
-          curl http://localhost
+          sudo ufw app list
+          sudo ufw allow 'Nginx HTTP'
+          systemctl status nginx
+          curl -4 icanhazip.com
       - name: Print Bye
         run: echo "GoodBye"
         
