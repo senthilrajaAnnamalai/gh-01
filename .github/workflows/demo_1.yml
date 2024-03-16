@@ -1,0 +1,14 @@
+name: gh-w01
+on: workflow_dispatch
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Greeting
+        run: |
+          echo "My First Workflow"
+          sudo apt-get install figlet
+          figlet "Linux Rocks!"
+      - name: Print Bye
+        run: echo "GoodBye"
+        
