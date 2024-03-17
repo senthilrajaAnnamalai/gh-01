@@ -8,17 +8,18 @@ jobs:
       - name: Install terraform
         run: |
          echo $tfVersion
-         wget  https://releases.hashicorp.com/terraform/$tfVersion/terraform_${{vars.TFVERSION}}_linux_amd64.zip
+         wget  https://releases.hashicorp.com/terraform/${{vars.TFVERSION}}/terraform_${{vars.TFVERSION}}_linux_amd64.zip
          sudo unzip -o terraform_${{vars.TFVERSION}}_linux_amd64.zip -d /usr/local/bin
          terraform -version   
   deploy-demo:
+    needs: deploy-dev
     environment: dev  
     runs-on: ubuntu-latest
     steps:
       - name: Install terraform
         run: |
          echo $tfVersion
-         wget  https://releases.hashicorp.com/terraform/$tfVersion/terraform_${{vars.TFVERSION}}_linux_amd64.zip
+         wget  https://releases.hashicorp.com/terraform/$${{vars.TFVERSION}}/terraform_${{vars.TFVERSION}}_linux_amd64.zip
          sudo unzip -o terraform_${{vars.TFVERSION}}_linux_amd64.zip -d /usr/local/bin
          terraform -version
 
