@@ -41,8 +41,7 @@ jobs:
       - name: Process downloaded file
         run: |
           cat report.html 
-          cp -f /var/www/html/ report.html
-          ls /var/www/
-          cat /var/www/report.html
+          cp -f /var/www/html/index.html report.html
+          ls /var/www/html
       
           
