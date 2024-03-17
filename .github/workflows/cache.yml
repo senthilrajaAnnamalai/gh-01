@@ -1,4 +1,4 @@
-name: Explore vars and secrets
+name: Cache
 on: workflow_dispatch
 jobs:
   deploy-dev:
