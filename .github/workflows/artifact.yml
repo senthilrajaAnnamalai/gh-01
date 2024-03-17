@@ -24,4 +24,4 @@ jobs:
         with:
           name: sys-info-report
       - name: Process downloaded file
-        run: ls 
+        run: cat report.html 
