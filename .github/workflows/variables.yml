@@ -10,5 +10,7 @@ jobs:
           export AWS_SECRET_ACCESS_KEY=${{vars.AWS_SECRET_KEY}}
           export AWS_REGION=us-east-1
       - name: Validate input
-        run: env
+        run: |
+          env
+          printenv
           
