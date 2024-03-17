@@ -4,7 +4,7 @@ env:
   AWS_ACCESS_KEY_ID: ${{vars.AWS_ACCESS_KEY}}
 jobs:
   Configure:
-    environment: dev  
+    environment: demo  
     runs-on: ubuntu-latest
     steps:
       - name: check tfversion
