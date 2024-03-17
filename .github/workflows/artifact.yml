@@ -23,8 +23,5 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: sys-info-report
-          path: docs
       - name: Process downloaded file
-        run: |
-          zip -r sys-info-report.zip sys-info-report/
-          ls -lrth
+        run: ls 
