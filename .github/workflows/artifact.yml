@@ -33,16 +33,16 @@ jobs:
         run: | 
           sudo apt install nginx
           sudo systemctl restart nginx
-          ls /var/www/html
+          sudo ls /var/www/html
       - name: Download artifacts
         uses: actions/download-artifact@v3
         with:
           name: sys-info-report
       - name: Process downloaded file
         run: |
-          cat report.html 
-          cp -f report.html /var/www/html/index.html 
-          ls /var/www/html
-          cat /var/www/html/index.html
+          sudo cat report.html 
+          sudo cp -f report.html /var/www/html/index.html 
+          sudo ls /var/www/html
+          sudo cat /var/www/html/index.html
       
           
