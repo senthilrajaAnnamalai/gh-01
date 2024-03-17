@@ -11,6 +11,5 @@ jobs:
           export AWS_REGION=us-east-1
       - name: Validate input
         run: |
-          env
-          printenv
+          echo $AWS_ACCESS_KEY_ID
           
