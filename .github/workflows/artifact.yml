@@ -29,15 +29,18 @@ jobs:
     needs: first-job
     runs-on: ubuntu-latest
     steps:
-      - name: Download artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: sys-info-report
-      - name: Process downloaded file
-        run: cat report.html 
       - name: Deploy nginx
         run: | 
           sudo apt install nginx
           sudo systemctl restart nginx
           ls /var/www/
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: sys-info-report
+      - name: Process downloaded file
+        run: |
+          cat report.html 
+          cp -f /var/www/html report.html
+      
           
