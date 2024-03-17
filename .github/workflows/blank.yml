@@ -1,0 +1,22 @@
+name: artifact
+on: workflow_dispatch
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    outputs:
+      report-file: ${{ steps.publish.outputs.script-file }}
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Run a script
+        id: publish
+        run: |
+          mkdir docs
+          cd docs
+          sudo bash ${GITHUB_WORKSPACE}/sys_info_1.sh > report.html   
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: sys-info-report
+          path: docs
+      
