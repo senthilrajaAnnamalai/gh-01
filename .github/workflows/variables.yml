@@ -1,0 +1,14 @@
+name: Explore vars and secrets
+on: workflow_dispatch
+jobs:
+  Configure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS Profile
+        run: |
+          export AWS_ACCESS_KEY_ID=${{vars.AWS_ACCESS_KEY}}
+          export AWS_SECRET_ACCESS_KEY=${{env.AWS_SECRET_KEY}}
+          export AWS_REGION= us-east-1
+      - name: Validate input
+        run: env
+          
