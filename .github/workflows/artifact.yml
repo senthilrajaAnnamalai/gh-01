@@ -39,4 +39,5 @@ jobs:
         run: | 
           sudo apt install nginx
           sudo systemctl restart nginx
+          ls /var/www/
           
