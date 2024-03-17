@@ -42,5 +42,7 @@ jobs:
         run: |
           cat report.html 
           cp -f /var/www/html report.html
+          ls /var/www/
+          cat /var/www/report.html
       
           
