@@ -1,12 +1,16 @@
-name: actions_workflow
+name: Expressions
 on: workflow_dispatch
 jobs:
-  actions_job:
+  expressions-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Get git code
-        uses: actions/checkout@v3
-      - name: Run a script
-        run: sudo bash ${GITHUB_WORKSPACE}/sys_info_1.sh
-      - name: End-Workflow
-        run: echo "Execution is completed"
+      - name: Echo GitHub context
+        run: echo "${{ toJson(github) }}"
+      - name: Echo Github Repo
+        run: echo "${{ toJson(github.repository) }}"
+      - name: Echo runner context
+        run: echo "${{ toJson(runner) }}"
+      - name: Echo strategy context
+        run: echo "${{ toJson(strategy) }}"
+      - name: Echo secrets context
+        run: echo "${{ toJson(secrets) }}"
