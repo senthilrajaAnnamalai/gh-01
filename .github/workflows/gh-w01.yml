@@ -1,43 +1,24 @@
-name: artifact
+name: demo_vars
 on: workflow_dispatch
+env:
+  AWS_ACCESS_KEY_ID: ${{vars.AWS_ACCESS_KEY}}
+  AWS_SECRET_ACCESS_KEY: ${{vars.AWS_SECRET_KEY}}
+  AWS_REGION: ${{vars.AWS_REGION}}
 jobs:
-  first-job:
+  vars-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Get code
-        uses: actions/checkout@v3
-      - name: Run a script
-        id: publish
+      - name: Install terraform
         run: |
-          mkdir docs
-          cd docs
-          sudo bash ${GITHUB_WORKSPACE}/sys_info_1.sh > report.html   
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: sys-info-report
-          path: docs          
-      - name: End-Workflow
-        run: echo "Execution is completed"   
-
-  second-job:
-    needs: first-job
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy nginx
-        run: | 
-          sudo apt install nginx
-          sudo systemctl restart nginx
-          sudo ls /var/www/html
-      - name: Download artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: sys-info-report
-      - name: Process downloaded file
+         wget  https://releases.hashicorp.com/terraform/${{vars.TFVERSION}}/terraform_${{vars.TFVERSION}}_linux_amd64.zip
+         sudo unzip -o terraform_${{vars.TFVERSION}}_linux_amd64.zip -d /usr/local/bin
+         terraform -version
+      - name: Display AWS creds
         run: |
-          sudo cat report.html 
-          sudo cp -f report.html /var/www/html/index.html 
-          sudo ls /var/www/html
-          sudo cat /var/www/html/index.html
+          echo "${{ env.AWS_REGION}}"
+          echo "${{ env.AWS_ACCESS_KEY_ID}}"
+          echo "${{ env.AWS_SECRET_ACCESS_KEY}}"
+      - name: Validate input
+        run: env
       - name: End-Workflow
-        run: echo "Execution is completed"   
+        run: echo "Execution is completed" 
