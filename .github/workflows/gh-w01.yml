@@ -1,14 +1,13 @@
 name: Events with Filter
-on:
-  workflow_dispatch:
+on: 
   pull_request:
-    types: [opened, reopened]
 jobs:
-  My-job:
+  build:
+    name: Hello world
     runs-on: ubuntu-latest
     steps:
-      - name: trigger-action
-        run: echo ${{ toJson(github.event.pusher.name) }}
-      - name: End-Workflow
-        run: echo "Execution is completed"
-       
+    - name: Write a multi-line message
+      run: |
+        echo This demo file shows a 
+        echo very basic and easy-to-understand workflow.
+         
