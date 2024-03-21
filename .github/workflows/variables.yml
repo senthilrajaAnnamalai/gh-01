@@ -2,7 +2,7 @@ name: Explore vars and secrets
 on: workflow_dispatch
 env:
   AWS_ACCESS_KEY_ID: ${{vars.AWS_ACCESS_KEY}}
-  AWS_SECRET_ACCESS_KEY: ${{vars.AWS_SECRET_ACCESS_KEY}}
+  AWS_SECRET_ACCESS_KEY: ${{vars.AWS_SECRET_KEY}}
 jobs:
   Configure:
     environment: demo  
