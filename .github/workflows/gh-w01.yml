@@ -23,6 +23,6 @@ jobs:
     steps:
       - name: "output call between jobs"
         run: |
-          echo "Output [${{jobs.first-job.outputs.jobOutput}}]"
+          echo "Output [${{needs.first-job.outputs.jobOutput}}]"
       - name: End-Workflow
         run: echo "Execution is completed"    
