@@ -9,9 +9,7 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
       - name: Github Ref
-        env:
-          REPO_CONTEXT: ${{ toJson(github.repository) }}
-        run: echo "$REPO_CONTEXT"
+        run: echo "${{ toJson(github.repository) }}"
       - name: Dump runner context
         env:
           RUNNER_CONTEXT: ${{ toJson(runner) }}
