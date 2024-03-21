@@ -1,4 +1,4 @@
-name: Events Demo 1
+name: Events with Filter
 on:
   push:
     branches:
@@ -19,3 +19,6 @@ jobs:
     steps:
       - name: Output event data
         run: echo "${{ toJSON(github.event) }}"
+      - name: End-Workflow
+        run: echo "Execution is completed"
+        
