@@ -1,5 +1,8 @@
 name: Explore vars and secrets
 on: workflow_dispatch
+env:
+  AWS_ACCESS_KEY_ID: ${{vars.AWS_ACCESS_KEY}}
+  AWS_SECRET_ACCESS_KEY: ${{vars.AWS_SECRET_KEY}}
 jobs:
   Configure:
     environment: demo  
@@ -9,9 +12,6 @@ jobs:
         run: echo ${{vars.TFVERSION}}
       - name: Configure AWS Profile
         run: |
-          export AWS_ACCESS_KEY_ID=${{vars.AWS_ACCESS_KEY}}
-          export AWS_SECRET_ACCESS_KEY=${{vars.AWS_SECRET_KEY}}
-          export AWS_REGION=us-east-1
           env
       - name: Validate input
         run: |
