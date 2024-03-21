@@ -1,13 +1,23 @@
-name: trigger-by-push
-on: [push]                  # Trigger on push
+name: Events with Filter
+on: 
+  push:
+    branches:
+      - main
+      - 'main*'
+    # paths-ignore:
+    #   - '.github/workflows/*'
+  workflow_dispatch:
+  pull_request:
+    types:
+      - opened
+    branches:
+      - main    
 jobs:
-  first-job:
+  My-job:
     runs-on: ubuntu-latest
     steps:
-      - name: first-step
-        run: |
-          echo "Display A Figlet"
-          sudo apt-get install figlet
-          figlet "Github Actions..!"
+      - name: trigger-action
+        run: echo ${{ toJson(github.event.pusher.name) }}
       - name: End-Workflow
-        run: echo "Execution is completed"
+        run: echo “Execution is completed"
+       
