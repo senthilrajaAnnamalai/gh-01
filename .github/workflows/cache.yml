@@ -5,7 +5,7 @@ jobs:
     environment: dev  
     runs-on: ubuntu-latest
     steps:
-      - name: Install terraform
+      - name: Install terraform app
         run: |
          echo $tfVersion
          wget  https://releases.hashicorp.com/terraform/${{vars.TFVERSION}}/terraform_${{vars.TFVERSION}}_linux_amd64.zip
