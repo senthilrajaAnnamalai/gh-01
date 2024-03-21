@@ -19,5 +19,5 @@ jobs:
       - name: trigger-action
         run: echo ${{ toJson(github.event.pusher.name) }}
       - name: End-Workflow
-        run: echo “Execution is completed"
+        run: echo "Execution is completed"
        
