@@ -6,8 +6,8 @@ jobs:
     steps:
       - name: first-step
         run: |
-          echo “Display A Figlet"
+          echo "Display A Figlet"
           sudo apt-get install figlet
           figlet "Linux Rocks!"
       - name: Greetings..!
-        run: echo “Congratulations on your first workflow"
+        run: echo "Congratulations on your first workflow"
