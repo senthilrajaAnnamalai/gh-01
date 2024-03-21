@@ -5,16 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-      - name: Github Ref
+        run: echo "${{ toJson(github) }}"
+      - name: Github Repo
         run: echo "${{ toJson(github.repository) }}"
       - name: Dump runner context
-        env:
-          RUNNER_CONTEXT: ${{ toJson(runner) }}
-        run: echo "$RUNNER_CONTEXT"
+        run: echo "${{ toJson(runner) }}"
       - name: Dump strategy context
-        env:
-          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
-        run: echo "$STRATEGY_CONTEXT"
+        run: echo "${{ toJson(strategy) }}"
