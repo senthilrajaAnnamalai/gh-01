@@ -1,12 +1,12 @@
-name: Events with Filter
-on: 
-  pull_request:
+name: actions_workflow
+on: workflow_dispatch
 jobs:
-  My-job:
+  actions_job:
     runs-on: ubuntu-latest
     steps:
-      - name: trigger-action
-        run: echo ${{ toJson(github.event.pusher.name) }}
+      - name: Get git code
+        uses: actions/checkout@v3
+      - name: Run a script
+        run: sudo bash ${GITHUB_WORKSPACE}/sys_info_1.sh
       - name: End-Workflow
         run: echo "Execution is completed"
-       
