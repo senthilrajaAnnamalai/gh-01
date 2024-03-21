@@ -1,8 +1,7 @@
 name: Events with Filter
-on: 
+on:
   pull_request:
-    types:
-      - opened   
+    types: [opened, reopened]
 jobs:
   My-job:
     runs-on: ubuntu-latest
