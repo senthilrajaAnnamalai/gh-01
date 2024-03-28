@@ -8,6 +8,7 @@ jobs:
         run: |
           echo "My First Workflow"
       - name: Install nginx
+        continue-on-error: true
         run : |
           sudo apt update
           sudo apt install nginxe
