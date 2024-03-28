@@ -4,18 +4,19 @@ jobs:
   first-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Print Greeting
-        run: |
-          echo "My First Workflow"
-      - name: Install nginx
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Run a script
         continue-on-error: true
-        run : |
-          sudo apt update
-          sudo apt install nginxe
-          sudo ufw app list
-          sudo ufw allow 'Nginx HTTP'
-          sudo systemctl restart nginx
-          sudo systemctl status nginx
-      - name: Print Bye
-        run: echo "GoodBye"
-        
+        id: publish
+        run: |
+          mkdir docs
+          cd docs
+          sudo bash ${GITHUB_WORKSPACE}/sys_info_1.sh > report.html   
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: sys-info-report
+          path: docs          
+      - name: End-Workflow
+        run: echo “Execution is completed" 
