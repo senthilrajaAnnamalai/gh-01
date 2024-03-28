@@ -12,11 +12,11 @@ jobs:
         run: |
           mkdir docs
           cd docs
-          sudo bash ${GITHUB_WORKSPACE}/sys_info_1.sh > report.html   
+          sudo bash ${GITHUB_WORKSPACE}/sys_info_1.wsh > report.html   
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
           name: sys-info-report
           path: docs          
       - name: End-Workflow
-        run: echo “Execution is completed" 
+        run: echo "Execution is completed" 
