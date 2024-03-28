@@ -1,0 +1,20 @@
+name: exec
+on: workflow_dispatch
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Greeting
+        run: |
+          echo "My First Workflow"
+      - name: Install nginx
+        run : |
+          sudo apt update
+          sudo apt install nginxe
+          sudo ufw app list
+          sudo ufw allow 'Nginx HTTP'
+          sudo systemctl restart nginx
+          sudo systemctl status nginx
+      - name: Print Bye
+        run: echo "GoodBye"
+        
