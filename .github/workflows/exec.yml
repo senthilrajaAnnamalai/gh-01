@@ -14,12 +14,12 @@ jobs:
           cd docs
           sudo bash ${GITHUB_WORKSPACE}/sys_info_1.wsh > report.html   
       - name: Upload artifacts
-        uses: action/upload-artifact@v3
+        uses: actions/upload-artifact@v3
         with:
           name: sys-info-report
           path: docs          
       - name: End-Workflow
-        run: echo e "Execution is completed" 
+        run: echo "Execution is completed" 
         
   second-job:
     needs: first-job
