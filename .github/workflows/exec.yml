@@ -20,7 +20,7 @@ jobs:
           name: sys-info-report
           path: docs          
       - name: End-Workflow
-        run: echo "Execution is completed" 
+        run: echos "Execution is completed" 
         
   second-job:
     needs: first-job
