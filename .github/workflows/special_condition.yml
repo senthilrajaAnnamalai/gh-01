@@ -9,8 +9,6 @@ jobs:
       - name: Run a script
         id: publish
         run: |
-          mkdir docs
-          cd docs
           sudo bash ${GITHUB_WORKSPACE}/sys_info_1.sh > report.html      
       - name: Deploy nginx
         run: | 
