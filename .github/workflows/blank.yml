@@ -21,9 +21,8 @@ jobs:
       - name: install fin
         run: |
           python -m pip install -U --force-reinstall yfinance 
-      - name: Get stock value
-        run: |
-          sudo python ${GITHUB_WORKSPACE}/fin.py
+          import yfinance as yf
+          ticker = yf.Ticker('GOOGL').info
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
 
