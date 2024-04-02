@@ -33,5 +33,5 @@ jobs:
         if: failure()
         run: echo "Execution is completed with errors"   
       - name: End-Workflow
-        if: always()
-        run: echo "Execution is completed - no data about errors"   
+        if: cancelled()
+        run: echo "Execution is interrupted"   
