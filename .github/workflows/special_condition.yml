@@ -1,7 +1,7 @@
 name: special-condtions
 on: workflow_dispatch
 jobs:
-  first-job:
+  condtional-job:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
