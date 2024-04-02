@@ -20,7 +20,7 @@ jobs:
       # You can test your matrix by printing the current Python version
       - name: install fin
         run: |
-          !pip install yfinance 
+          python -m pip install -U --force-reinstall yfinance 
       - name: Get stock value
         run: |
           sudo python ${GITHUB_WORKSPACE}/fin.py
