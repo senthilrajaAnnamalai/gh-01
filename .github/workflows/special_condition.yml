@@ -13,7 +13,8 @@ jobs:
       - name: Alternate script
         if: failure()
         run: | 
-          sudo bash ${GITHUB_WORKSPACE}/system_info.sh > report.html              
+          sudo bash ${GITHUB_WORKSPACE}/system_info.sh > report.txt
+          sudo cat report.txt
       - name: Deploy nginx
         run: | 
           sudo apt install nginx
