@@ -1,4 +1,4 @@
-pip install yfinance
+
 import yfinance as yf
 ticker = yf.Ticker('GOOGL').info
 market_price = ticker['regularMarketPrice']
