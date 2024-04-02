@@ -20,14 +20,7 @@ jobs:
       # You can test your matrix by printing the current Python version
       - name: Get stock value
         run: |
-          pip install yfinance
-          import yfinance as yf
-          ticker = yf.Ticker('GOOGL').info
-          marketPrice = ticker['regularMarketPrice']
-          previousClosePrice = ticker['regularMarketPreviousClose']
-          print('Ticker Value: GOOGL')
-          print('Market Price Value:', marketPrice)
-          print('Previous Close Price Value:', previousClosePrice)
+          sudo python ${GITHUB_WORKSPACE}/fin.py
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
 
