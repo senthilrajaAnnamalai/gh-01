@@ -6,4 +6,4 @@ jobs:
     steps:
       - name: Get code
         run: |
-          echo -e "result=$result `head -n1 /etc/issue`" >> $GITHUB_OUTPUT
+          echo "result=$result `head -n1 /etc/issue`" >> $GITHUB_OUTPUT
