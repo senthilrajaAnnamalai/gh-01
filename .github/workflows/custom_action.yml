@@ -1,0 +1,10 @@
+name: pyscript
+on: workflow_dispatch
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup python
+        uses: ./.github/actions/
+        with:
+          subnet: 10.0.0.0/21
