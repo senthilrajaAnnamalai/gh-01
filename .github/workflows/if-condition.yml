@@ -23,9 +23,15 @@ jobs:
           sudo unzip -o terraform_1.7.5_linux_amd64.zip -d /usr/local/bin
           terraform -version
       - name: Download TF 
+        id: ver165
         if: contains(steps.osinfo.outputs.result, 'Ubuntu 22.04') != true
         run: |          
           wget  https://releases.hashicorp.com/terraform/1.6.5/terraform_1.6.5_linux_amd64.zip
+          sudo unzip -o terraform_1.6.5_linux_amd64.zip -d /usr/local/bin
+          terraform -version
+      - name : Install Terraform
+        if: (steps.ver165.outcome == 'success' && contains(steps.osinfo.outputs.result, 'Ubuntu 22.04') != true)
+        run : |
           sudo unzip -o terraform_1.6.5_linux_amd64.zip -d /usr/local/bin
           terraform -version
           
