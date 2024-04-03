@@ -1,4 +1,4 @@
-name: pyscript
+name: pyscript-custom
 on: workflow_dispatch
 jobs:
   first-job:
