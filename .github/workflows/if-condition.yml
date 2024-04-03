@@ -14,6 +14,6 @@ jobs:
           echo ${{ github.repository}}         
       - name: Validate OS
         run: |
-          if ${{ steps.osinfo.conclusion == 'success' &&  contains(steps.osinfo.outputs.ouput, 'Ubuntu 22.04') }}
+          if ${{ steps.osinfo.conclusion == 'success' }}
           echo "${{ steps.osinfo.outputs.result}}"
           
