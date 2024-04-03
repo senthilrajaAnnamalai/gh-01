@@ -11,8 +11,10 @@ jobs:
         run: |
           sudo bash ${GITHUB_WORKSPACE}/sys_info_1.wsh > report.html
       - name: validate outcome
+        if: always()
         run: |
           echo " outcome ${{ steps.result.outcome }}"    
       - name: validate conclusion
+        if: always()
         run: |
           echo " outcome ${{ steps.result.conclusion }}"    
