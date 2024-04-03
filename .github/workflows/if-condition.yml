@@ -12,4 +12,4 @@ jobs:
           echo "result=$result" >> $GITHUB_OUTPUT
       - name: Validate OS
         run: |
-          echo "${{ steps.osinfo.outputs.resul}}"
+          echo "${{ steps.osinfo.outputs.result}}"
