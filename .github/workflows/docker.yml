@@ -7,12 +7,12 @@ jobs:
     container:
       image: hashicorp/terraform:1.6
     steps:
-     - name: Log the parent container node version
+     - name: Validate TF version
        run: |
          terraform -version
-     - name: Get code
+     - name: Get base code
        uses: actions/checkout@v3
-     - name: initiaize
+     - name: terraform initialize
        run: |
          cd ./terraform
          terraform init
