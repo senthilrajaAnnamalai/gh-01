@@ -8,13 +8,13 @@ inputs:
 outputs:
   networkAddress:
     description: 'networkAddress'
-    value: ${{ steps.result.outputs.networkAddress }}
+    value: ${{ steps.result1.outputs.networkAddress }}
   broadcastAddress:
     description: 'broadcastAddress'
-    value: ${{ steps.result.outputs.broadcastAddress }}
+    value: ${{ steps.result2.outputs.broadcastAddress }}
   CIDRNotation:
     description: 'networkAddress'
-    value: ${{ steps.result.outputs.networkAddress }}
+    value: ${{ steps.result3.outputs.networkAddress }}
     
 runs:
   using: 'composite'
@@ -26,13 +26,19 @@ runs:
         with:
           python-version: 3.8 #install the python needed
       - name: execute py script # run the run.py to get the latest data
-        id: result
+        id: result1
         run: |
           python fin.py 10.0.0.0/21 > sub-result.txt
           networkAddress=$(echo `head -n1 ./sub-result.txt`) 
           echo "networkAddress=$networkAddress" >> $GITHUB_OUTPUT
+      - name: execute py script # run the run.py to get the latest data
+        id: result2
+        run: |
           broadcastAddress=$(echo `head -n2 ./sub-result.txt`) 
           echo "broadcastAddress=$broadcastAddress" >> $GITHUB_OUTPUT
+      - name: execute py script # run the run.py to get the latest data
+        id: result3
+        run: |
           CIDRNotation=$(echo `head -n3 ./sub-result.txt`) 
           echo "CIDRNotation=$CIDRNotation" >> $GITHUB_OUTPUT
         shell: bash
