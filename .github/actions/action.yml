@@ -1,19 +1,24 @@
-name: 'Deploy to AWS S3'
-description: 'Deploy a static website via AWS S3.'
+name: 'Subnet Calculator'
+description: 'To calculate subnets for allocation'
 inputs:
-  bucket:
-    description: 'The S3 bucket name.'
-    required: true
-  bucket-region: 
-    description: 'The region of the S3 bucket.'
+  subnet:
+    description: 'Enter subnet with mask'
     required: false
-    default: 'us-east-1'
-  dist-folder:
-    description: 'The folder containing the deployable files.'
-    required: true
+    default: 'true'
 outputs:
-  website-url:
-    description: 'The URL of the deployed website.'
+  used-cache:
+    description: 'Whether the cache was used.'
+    value: ${{ steps.result.outputs }}
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: 'composite'
+  steps:
+      - name: checkout repo content
+        uses: actions/checkout@v2 # checkout the repository content to github runner.
+      - name: setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8 #install the python needed
+      - name: execute py script # run the run.py to get the latest data
+        id: result
+        run: |
+          python fin.py 10.0.0.0/21 >> $GITHUB_OUTPUT
