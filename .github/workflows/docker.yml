@@ -4,9 +4,7 @@ jobs:
   container-test-job:
     runs-on: ubuntu-latest
     container:
-      image: node:18
-      env:
-        NODE_ENV: development
+      image: nginx:latest
       ports:
         - 80
       volumes:
@@ -14,4 +12,5 @@ jobs:
       options: --cpus 1
     steps:
       - name: Check for dockerenv file
-        run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
+        run: |
+          sudo systemctl status nginx
