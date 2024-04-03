@@ -7,9 +7,12 @@ jobs:
       - name: Get code
         uses: actions/checkout@v3
       - name: Run a script
-        id: publish
+        id: result
         run: |
           sudo bash ${GITHUB_WORKSPACE}/sys_info_1.sh > report.html
-      - name: Alternate script
+      - name: validate outcome
         run: |
-          echo " outcome ${{ steps.publish.outcome }}"    
+          echo " outcome ${{ steps.result.outcome }}"    
+      - name: validate conclusion
+        run: |
+          echo " outcome ${{ steps.result.conclusion }}"    
