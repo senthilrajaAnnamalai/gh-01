@@ -13,4 +13,4 @@ jobs:
     steps:
       - name: Check for dockerenv file
         run: |
-          doscker ps
+          docker ps
