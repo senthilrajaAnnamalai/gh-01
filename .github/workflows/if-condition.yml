@@ -8,8 +8,12 @@ jobs:
         id: osinfo
         run: |
           result=$(echo `head -n1 /etc/issue`)
-          echo $result
           echo "result=$result" >> $GITHUB_OUTPUT
+      - name: git repo
+        run: |
+          echo ${{ github.repository}}         
       - name: Validate OS
         run: |
+          if ${{ steps.osinfo.conclusion == 'success' &&  conatins(steps.osinfo.outputs.ouput, 'Ubuntu 22.04') }}
           echo "${{ steps.osinfo.outputs.result}}"
+          
