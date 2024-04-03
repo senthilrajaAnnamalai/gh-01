@@ -12,8 +12,20 @@ jobs:
       - name: git repo
         run: |
           echo ${{ github.repository}}         
-      - name: Validate OS
+      - name: Download TF
+        id: ver175
         if: contains(steps.osinfo.outputs.result, 'Ubuntu 22.04') == true
         run: |          
-          echo "${{ steps.osinfo.outputs.result}}"
+          wget  https://releases.hashicorp.com/terraform/1.75/terraform_1.75_linux_amd64.zip
+      - name : Install Terraform
+        if: steps.ver175.outcome == 'success'
+        run : |
+          sudo unzip -o terraform_1.75_linux_amd64.zip -d /usr/local/bin
+          terraform -version
+      - name: Download TF 
+        if: contains(steps.osinfo.outputs.result, 'Ubuntu 22.04') != true
+        run: |          
+          wget  https://releases.hashicorp.com/terraform/1.65/terraform_1.65_linux_amd64.zip
+          sudo unzip -o terraform_1.65_linux_amd64.zip -d /usr/local/bin
+          terraform -version
           
