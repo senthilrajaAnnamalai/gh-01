@@ -15,7 +15,7 @@ jobs:
         run: |
           echo "networkAddress fetched ${{ steps.subnet.outputs.networkAddress  }}"
           echo "broadcastAddress fetched ${{ steps.subnet.outputs.broadcastAddress  }}"
-          echo "broadcastAddress fetched ${{ steps.subnet.outputs.subnetMask   }}"
-          echo "broadcastAddress fetched ${{ steps.subnet.outputs.wildcardMask   }}"
-          echo "broadcastAddress fetched ${{ steps.subnet.outputs.firstIP   }}"
-          echo "broadcastAddress fetched ${{ steps.subnet.outputs.LastIP   }}"
+          echo "subnetMask fetched ${{ steps.subnet.outputs.subnetMask   }}"
+          echo "wildcardMask fetched ${{ steps.subnet.outputs.wildcardMask   }}"
+          echo "firstIP fetched ${{ steps.subnet.outputs.firstIP   }}"
+          echo "LastIP fetched ${{ steps.subnet.outputs.LastIP   }}"
