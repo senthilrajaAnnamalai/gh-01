@@ -29,6 +29,7 @@ runs:
         id: result1
         run: |
           python fin.py 10.0.0.0/21 > sub-result.txt
+          cat sub-result.txt
           networkAddress=$(echo `head -n1 ./sub-result.txt`) 
           echo "networkAddress=$networkAddress" >> $GITHUB_OUTPUT
         shell: bash
