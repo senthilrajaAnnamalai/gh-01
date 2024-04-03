@@ -8,10 +8,7 @@ jobs:
         id: osinfo
         run: |
           result=$(echo `head -n1 /etc/issue`)
-          echo "result=$result" >> $GITHUB_OUTPUT
-      - name: git repo
-        run: |
-          echo ${{ github.repository}}         
+          echo "result=$result" >> $GITHUB_OUTPUT   
       - name: Download TF
         id: ver175
         if: contains(steps.osinfo.outputs.result, 'Ubuntu 22.04') == true
