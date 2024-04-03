@@ -12,4 +12,7 @@ jobs:
         with:
           subnet: 10.0.0.0/21
       - name: Output information
-        run: echo "Output fetched ${{ steps.subnet.outputs.used-cache }}"
+        run: |
+          echo "networkAddress fetched ${{ steps.subnet.outputs.networkAddress  }}"
+          echo "broadcastAddress fetched ${{ steps.subnet.outputs.broadcastAddress  }}"
+          echo "CIDRNotation fetched ${{ steps.subnet.outputs.CIDRNotation  }}"
