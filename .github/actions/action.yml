@@ -11,7 +11,19 @@ outputs:
     value: ${{ steps.result1.outputs.networkAddress }}
   broadcastAddress:
     description: 'broadcastAddress'
-    value: ${{ steps.result1.outputs.broadcastAddress }}
+    value: ${{ steps.result2.outputs.broadcastAddress }}
+  subnetMask:
+    description: 'subnetMask'
+    value: ${{ steps.result3.outputs.subnetMask }}
+  wildcardMask:
+    description: 'wildcardMask'
+    value: ${{ steps.result4.outputs.wildcardMask }}
+  firstIP:
+    description: 'firstIP'
+    value: ${{ steps.result5.outputs.firstIP }}
+  LastIP:
+    description: 'LastIP'
+    value: ${{ steps.result6.outputs.LastIP }}
 runs:
   using: 'composite'
   steps:
@@ -34,10 +46,38 @@ runs:
           echo "action out $networkAddress" 
           echo "networkAddress=$networkAddress" >> $GITHUB_OUTPUT
         shell: bash
-      - name: networkAddress
+      - name: broadcastAddress
         id: result2
         run: |
           broadcastAddress=$(echo `sed -n '2 p' sub-result.txt`) 
           echo "action out $broadcastAddress" 
           echo "broadcastAddress=$broadcastAddress" >> $GITHUB_OUTPUT
+        shell: bash
+        - name: subnetMask
+        id: result3
+        run: |
+          subnetMask=$(echo `sed -n '4 p' sub-result.txt`) 
+          echo "action out $subnetMask" 
+          echo "subnetMask=$subnetMask" >> $GITHUB_OUTPUT
+        shell: bash
+        - name: wildcardMask
+        id: result4
+        run: |
+          wildcardMask=$(echo `sed -n '5 p' sub-result.txt`) 
+          echo "action out $wildcardMask" 
+          echo "wildcardMask=$wildcardMask" >> $GITHUB_OUTPUT
+        shell: bash
+        - name: firstIP
+        id: result5
+        run: |
+          firstIP=$(echo `sed -n '6 p' sub-result.txt`) 
+          echo "action out $firstIP" 
+          echo "firstIP=$firstIP" >> $GITHUB_OUTPUT
+        shell: bash
+        - name: LastIP
+        id: result6
+        run: |
+          LastIP=$(echo `sed -n '7 p' sub-result.txt`) 
+          echo "action out $LastIP" 
+          echo "LastIP=$LastIP" >> $GITHUB_OUTPUT
         shell: bash
