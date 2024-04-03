@@ -30,7 +30,7 @@ runs:
       - name: networkAddress
         id: result1
         run: |
-          networkAddress=$(echo `read 2 "sub-result.txt"`) 
+          networkAddress=$(echo `sed -n '2 p' sub-result.txt`) 
           echo "action out $networkAddress" 
           echo "networkAddress=$networkAddress" >> $GITHUB_OUTPUT
         shell: bash
