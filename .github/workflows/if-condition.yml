@@ -6,4 +6,4 @@ jobs:
     steps:
       - name: Get code
         run: |
-          echo -e "This Linux Distro. Used On this computer `head -n1 /etc/issue`
+          echo -e "This Linux Distro. Used On this computer `head -n1 /etc/issue`"
