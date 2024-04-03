@@ -53,28 +53,28 @@ runs:
           echo "action out $broadcastAddress" 
           echo "broadcastAddress=$broadcastAddress" >> $GITHUB_OUTPUT
         shell: bash
-        - name: subnetMask
+      - name: subnetMask
         id: result3
         run: |
           subnetMask=$(echo `sed -n '4 p' sub-result.txt`) 
           echo "action out $subnetMask" 
           echo "subnetMask=$subnetMask" >> $GITHUB_OUTPUT
         shell: bash
-        - name: wildcardMask
+      - name: wildcardMask
         id: result4
         run: |
           wildcardMask=$(echo `sed -n '5 p' sub-result.txt`) 
           echo "action out $wildcardMask" 
           echo "wildcardMask=$wildcardMask" >> $GITHUB_OUTPUT
         shell: bash
-        - name: firstIP
+      - name: firstIP
         id: result5
         run: |
           firstIP=$(echo `sed -n '6 p' sub-result.txt`) 
           echo "action out $firstIP" 
           echo "firstIP=$firstIP" >> $GITHUB_OUTPUT
         shell: bash
-        - name: LastIP
+      - name: LastIP
         id: result6
         run: |
           LastIP=$(echo `sed -n '7 p' sub-result.txt`) 
