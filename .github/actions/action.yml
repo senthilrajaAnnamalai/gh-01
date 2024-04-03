@@ -14,7 +14,7 @@ outputs:
     value: ${{ steps.result.outputs.broadcastAddress }}
   CIDRNotation:
     description: 'networkAddress'
-    value: ${{ steps.result.outputs.CIDRNotation }}
+    value: ${{ steps.result.outputs.networkAddress }}
     
 runs:
   using: 'composite'
