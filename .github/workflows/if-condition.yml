@@ -9,7 +9,7 @@ jobs:
         run: |
           result=$(echo `head -n1 /etc/issue`)
           echo $result
-          echo "result=$result">> $GITHUB_OUTPUT
+          echo "result=$result" >> $GITHUB_OUTPUT
       - name: Validate OS
         run: |
           echo "${{ steps.osinfo.outputs.resul}}"
