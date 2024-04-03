@@ -37,9 +37,10 @@ runs:
         run: |
           broadcastAddress=$(echo `head -n2 ./sub-result.txt`) 
           echo "broadcastAddress=$broadcastAddress" >> $GITHUB_OUTPUT
+        shell: bash
       - name: execute py script # run the run.py to get the latest data
         id: result3
         run: |
           CIDRNotation=$(echo `head -n3 ./sub-result.txt`) 
           echo "CIDRNotation=$CIDRNotation" >> $GITHUB_OUTPUT
-        
+        shell: bash
