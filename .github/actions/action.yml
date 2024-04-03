@@ -9,12 +9,6 @@ outputs:
   networkAddress:
     description: 'networkAddress'
     value: ${{ steps.result1.outputs.networkAddress }}
-  broadcastAddress:
-    description: 'broadcastAddress'
-    value: ${{ steps.result2.outputs.broadcastAddress }}
-  CIDRNotation:
-    description: 'networkAddress'
-    value: ${{ steps.result3.outputs.networkAddress }}
     
 runs:
   using: 'composite'
@@ -37,18 +31,4 @@ runs:
           networkAddress=$(echo `head -n1 ./sub-result.txt`) 
           echo "action out $networkAddress" 
           echo "networkAddress=$networkAddress" >> $GITHUB_OUTPUT
-        shell: bash
-      - name: broadcastAddress
-        id: result2
-        run: |
-          broadcastAddress=$(echo `head -n2 ./sub-result.txt`) 
-          echo "action out $broadcastAddress" 
-          echo "broadcastAddress=$broadcastAddress" >> $GITHUB_OUTPUT
-        shell: bash
-      - name:CIDRNotation
-        id: result3
-        run: |
-          CIDRNotation=$(echo `head -n3 ./sub-result.txt`) 
-          echo "action out $CIDRNotation" 
-          echo "CIDRNotation=$CIDRNotation" >> $GITHUB_OUTPUT
         shell: bash
