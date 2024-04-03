@@ -22,6 +22,6 @@ runs:
         id: result
         run: |
           python fin.py 10.0.0.0/21 > sub-result.txt
-          res=$(echo 'head -n1 ./sub-result.txt) 
+          res=$(echo `head -n1 ./sub-result.txt`) 
           echo "res=$res" >> $GITHUB_OUTPUT
         shell: bash
