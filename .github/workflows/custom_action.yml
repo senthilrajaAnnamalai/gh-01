@@ -14,5 +14,3 @@ jobs:
       - name: Output information
         run: |
           echo "networkAddress fetched ${{ steps.subnet.outputs.networkAddress  }}"
-          echo "broadcastAddress fetched ${{ steps.subnet.outputs.broadcastAddress  }}"
-          echo "CIDRNotation fetched ${{ steps.subnet.outputs.CIDRNotation  }}"
