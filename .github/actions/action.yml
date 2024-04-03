@@ -21,5 +21,5 @@ runs:
       - name: execute py script # run the run.py to get the latest data
         id: result
         run: |
-          python fin.py 10.0.0.0/21 >> $GITHUB_OUTPUT
+          python fin.py 10.0.0.0/21
         shell: bash
