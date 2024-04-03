@@ -30,14 +30,14 @@ runs:
       - name: networkAddress
         id: result1
         run: |
-          networkAddress=$(echo `sed -n '2 p' sub-result.txt`) 
+          networkAddress=$(echo `sed -n '1 p' sub-result.txt`) 
           echo "action out $networkAddress" 
           echo "networkAddress=$networkAddress" >> $GITHUB_OUTPUT
         shell: bash
       - name: networkAddress
         id: result2
         run: |
-          broadcastAddress=$(echo `head -n4 ./sub-result.txt`) 
+          broadcastAddress=$(echo `sed -n '2 p' sub-result.txt`) 
           echo "action out $broadcastAddress" 
           echo "broadcastAddress=$broadcastAddress" >> $GITHUB_OUTPUT
         shell: bash
