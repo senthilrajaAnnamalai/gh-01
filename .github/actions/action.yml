@@ -31,6 +31,7 @@ runs:
           python fin.py 10.0.0.0/21 > sub-result.txt
           networkAddress=$(echo `head -n1 ./sub-result.txt`) 
           echo "networkAddress=$networkAddress" >> $GITHUB_OUTPUT
+        shell: bash
       - name: execute py script # run the run.py to get the latest data
         id: result2
         run: |
@@ -41,4 +42,4 @@ runs:
         run: |
           CIDRNotation=$(echo `head -n3 ./sub-result.txt`) 
           echo "CIDRNotation=$CIDRNotation" >> $GITHUB_OUTPUT
-        shell: bash
+        
