@@ -8,6 +8,7 @@ jobs:
         id: osinfo
         run: |
           result=$(echo `head -n1 /etc/issue`)
+          echo $result
           echo "result=$result">> $GITHUB_OUTPUT
       - name: Validate OS
         run: |
