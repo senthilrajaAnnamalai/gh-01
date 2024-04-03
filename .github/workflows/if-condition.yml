@@ -13,7 +13,7 @@ jobs:
         run: |
           echo ${{ github.repository}}         
       - name: Validate OS
-        if: github.repository == 'senthilrajaAnnamalai/gh-01' 
+        if: contains(steps.osinfo.outputs.ouput, 'Ubuntu 22.04') == true
         run: |          
           echo "${{ steps.osinfo.outputs.result}}"
           
