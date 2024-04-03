@@ -4,6 +4,10 @@ jobs:
   condtional-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Get code
+      - name: Get OS info
+        id: osinfo
         run: |
           echo "result=$result `head -n1 /etc/issue`" >> $GITHUB_OUTPUT
+      - name: Validate OS
+        run: |
+          echo "${{ steps.osinfo.outputs.resul}}"
