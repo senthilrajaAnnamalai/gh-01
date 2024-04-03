@@ -15,5 +15,6 @@ jobs:
      - name: initiaize
        run: |
          cd ./terraform
+         terraform init
          terraform fmt
          terraform validate
