@@ -13,7 +13,7 @@ jobs:
         run: |
           echo ${{ github.repository}}         
       - name: Validate OS
-        run: |
-          if: github.repository == 'senthilrajaAnnamalai/gh-01' 
+        if: github.repository == 'senthilrajaAnnamalai/gh-01' 
+        run: |          
           echo "${{ steps.osinfo.outputs.result}}"
           
