@@ -1,8 +1,18 @@
+import ipaddress
+import sys
 
-import yfinance as yf
-ticker = yf.Ticker('GOOGL').info
-market_price = ticker['regularMarketPrice']
-previous_close_price = ticker['regularMarketPreviousClose']
-print('Ticker: GOOGL')
-print('Market Price:', market_price)
-print('Previous Close Price:', previous_close_price)
+IP_Addr = ipaddress.ip_interface(sys.argv[1])
+
+Net_Addr = IP_Addr.network
+pref_len = IP_Addr.with_prefixlen
+Mask = IP_Addr.with_netmask
+wildcard = IP_Addr.hostmask
+broadcast_address = Net_Addr.broadcast_address
+
+print('Network Address : ', str(Net_Addr).split('/')[0])
+print('Broadcast Address : ' , broadcast_address)
+print('CIDR Notation : ', pref_len.split('/')[1])
+print('Subnet Mask : ', Mask.split('/')[1])
+print('Wildcard Mask : ' , wildcard)
+print('First IP : ' , list(Net_Addr.hosts())[0])
+print('Last IP : ' , list(Net_Addr.hosts())[-1])
