@@ -41,5 +41,5 @@ jobs:
       - name : Display Message
         if: (steps.install175.outcome == 'success' || steps.install165.outcome == 'success')
         run : | 
-          echo " Terraform is successfully installed. The version is ${{ tojson($GITHUB_OUTPUT)  }}"
+          echo " Terraform is successfully installed. The version is ${{GITHUB_OUTPUT}}"
           
