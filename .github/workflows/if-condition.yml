@@ -7,7 +7,8 @@ jobs:
       - name: Get OS info
         id: osinfo
         run: |
-          echo "result=$result `head -n1 /etc/issue`" >> $GITHUB_OUTPUT
+          result=$(echo `head -n1 /etc/issue`)
+          echo "result=$result">> $GITHUB_OUTPUT
       - name: Validate OS
         run: |
           echo "${{ steps.osinfo.outputs.resul}}"
