@@ -8,7 +8,7 @@ inputs:
 outputs:
   used-cache:
     description: 'Whether the cache was used.'
-    value: ${{ steps.result.outputs }}
+    value: ${{ steps.result.outputs.res }}
 runs:
   using: 'composite'
   steps:
@@ -21,5 +21,7 @@ runs:
       - name: execute py script # run the run.py to get the latest data
         id: result
         run: |
-          python fin.py 10.0.0.0/21
+          python fin.py 10.0.0.0/21 > sub-result.txt
+          res=$(echo 'head -n1 ./sub-result.txt) 
+          echo "res=$res" >> $GITHUB_OUTPUT
         shell: bash
