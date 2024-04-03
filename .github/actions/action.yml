@@ -6,9 +6,16 @@ inputs:
     required: false
     default: 'true'
 outputs:
-  used-cache:
-    description: 'Whether the cache was used.'
-    value: ${{ steps.result.outputs.res }}
+  networkAddress:
+    description: 'networkAddress'
+    value: ${{ steps.result.outputs.networkAddress }}
+  broadcastAddress:
+    description: 'broadcastAddress'
+    value: ${{ steps.result.outputs.broadcastAddress }}
+  CIDRNotation:
+    description: 'networkAddress'
+    value: ${{ steps.result.outputs.CIDRNotation }}
+    
 runs:
   using: 'composite'
   steps:
@@ -22,6 +29,10 @@ runs:
         id: result
         run: |
           python fin.py 10.0.0.0/21 > sub-result.txt
-          res=$(echo `head -n1 ./sub-result.txt`) 
-          echo "res=$res" >> $GITHUB_OUTPUT
+          networkAddress=$(echo `head -n1 ./sub-result.txt`) 
+          echo "networkAddress=$networkAddress" >> $GITHUB_OUTPUT
+          broadcastAddress=$(echo `head -n2 ./sub-result.txt`) 
+          echo "broadcastAddress=$broadcastAddress" >> $GITHUB_OUTPUT
+          CIDRNotation=$(echo `head -n3 ./sub-result.txt`) 
+          echo "CIDRNotation=$CIDRNotation" >> $GITHUB_OUTPUT
         shell: bash
