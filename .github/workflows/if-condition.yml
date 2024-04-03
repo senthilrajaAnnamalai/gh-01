@@ -24,6 +24,7 @@ jobs:
           sudo unzip -o terraform_1.7.5_linux_amd64.zip -d /usr/local/bin
           tfversion=$(terraform -version)
           echo $tfversion
+          echo "tfversion=$tfversion" >> $GITHUB_OUTPUT
       - name: Download TF 
         id: ver165
         if: contains(steps.osinfo.outputs.result, 'Ubuntu 22.04') != true
