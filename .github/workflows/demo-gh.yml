@@ -1,7 +1,7 @@
 name: Caching
 on: workflow_dispatch
 jobs:
-  build:
+  cache-job:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
