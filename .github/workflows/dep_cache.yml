@@ -14,7 +14,7 @@ jobs:
         with:
           # npm cache files are stored in `~/.npm` on Linux/macOS
           path: ./terraform_1
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/README.md') }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/terraform/main.tf') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
