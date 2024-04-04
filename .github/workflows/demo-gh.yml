@@ -1,29 +1,21 @@
-name: Caching
+name: container
 on: workflow_dispatch
-jobs:
-  cache-job:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Cache tf repo
-        id: cache-tf
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-tf-repo
-        with:
-          path: ./terraform_repo
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/terraform/main.tf') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
 
-      - if: ${{ steps.cache-tf.outputs.cache-hit != 'true' }}
-        name: Install terraform
-        run: |
-         ls
-         mkdir terraform_repo
-         cd terraform_repo
-         wget  https://releases.hashicorp.com/terraform/${{vars.TFVERSION}}/terraform_${{vars.TFVERSION}}_linux_amd64.zip
-         sudo unzip -o terraform_${{vars.TFVERSION}}_linux_amd64.zip -d /usr/local/bin
+jobs:
+  container-job:
+    runs-on: ubuntu-latest
+    container:
+      image: hashicorp/terraform:1.6
+    steps:
+     - name: Validate TF version
+       run: |
          terraform -version
+     - name: Get base code
+       uses: actions/checkout@v3
+     - name: terraform initialize
+       run: |
+         cd ./terraform
+         terraform init
+         terraform fmt
+         terraform validate
+         cat main.tf
