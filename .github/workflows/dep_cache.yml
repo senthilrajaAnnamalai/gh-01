@@ -23,6 +23,7 @@ jobs:
       - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
         name: Install terraform
         run: |
+         ls
          mkdir terraform_1
          cd terraform_1
          wget  https://releases.hashicorp.com/terraform/${{vars.TFVERSION}}/terraform_${{vars.TFVERSION}}_linux_amd64.zip
