@@ -13,7 +13,7 @@ jobs:
           cache-name: cache-node-modules
         with:
           # npm cache files are stored in `~/.npm` on Linux/macOS
-          path: ./terraform_1
+          path: ./terraform_2
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/terraform/main.tf') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
@@ -24,8 +24,8 @@ jobs:
         name: Install terraform
         run: |
          ls
-         mkdir terraform_1
-         cd terraform_1
+         mkdir terraform_2
+         cd terraform_2
          wget  https://releases.hashicorp.com/terraform/${{vars.TFVERSION}}/terraform_${{vars.TFVERSION}}_linux_amd64.zip
          sudo unzip -o terraform_${{vars.TFVERSION}}_linux_amd64.zip -d /usr/local/bin
          terraform -version
