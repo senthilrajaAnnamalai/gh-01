@@ -1,21 +1,21 @@
-name: container
+name: pyscript-custom
 on: workflow_dispatch
-
 jobs:
-  container-job:
+  custom-job:
     runs-on: ubuntu-latest
-    container:
-      image: hashicorp/terraform:1.6
     steps:
-     - name: Validate TF version
-       run: |
-         terraform -version
-     - name: Get base code
-       uses: actions/checkout@v3
-     - name: terraform initialize
-       run: |
-         cd ./terraform
-         terraform init
-         terraform fmt
-         terraform validate
-         cat main.tf
+      - name: checkout repo content
+        uses: actions/checkout@v3
+      - name: calculate subnet
+        id: subnet
+        uses: ./.github/actions/
+        with:
+          subnet: 10.0.0.0/21
+      - name: Output information
+        run: |
+          echo "networkAddress fetched ${{ steps.subnet.outputs.networkAddress}}"
+          echo "broadcastAddress fetched ${{ steps.subnet.outputs.broadcastAddress}}"
+          echo "subnetMask fetched ${{ steps.subnet.outputs.subnetMask}}"
+          echo "wildcardMask fetched ${{ steps.subnet.outputs.wildcardMask}}"
+          echo "firstIP fetched ${{ steps.subnet.outputs.firstIP}}"
+          echo "LastIP fetched ${{ steps.subnet.outputs.LastIP}}"
