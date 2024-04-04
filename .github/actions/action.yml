@@ -36,7 +36,7 @@ runs:
       - name: execute py script # run the run.py to get the latest data
         id: result
         run: |
-          python fin.py 10.0.0.0/21 > sub-result.txt
+          python subnet.py 10.0.0.0/21 > sub-result.txt
           cat sub-result.txt
         shell: bash
       - name: networkAddress
